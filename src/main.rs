@@ -44,6 +44,7 @@ impl eframe::App for MyApp {
                     self.started = true;
                 }
             } else {
+                ctx.request_repaint();
                 if ctx.input(|i| i.key_pressed(egui::Key::V)) {
                     // V
                     if !self.v {
