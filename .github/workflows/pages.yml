@@ -34,7 +34,7 @@ jobs:
         run: cargo install trunk --locked
 
       - name: Build | Build
-        run: trunk build --release
+        run: trunk build --release --public-url https://satler-git.github.io/rend/
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
