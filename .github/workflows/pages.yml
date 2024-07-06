@@ -2,7 +2,6 @@ name: Deploy web app to Pages
 
 on:
   push:
-
   workflow_dispatch:
 
 permissions:
@@ -32,7 +31,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Build | Install wasm-bindgen-cli and Trunk
-        run: cargo install wasm-bindgen-cli trunk --locked
+        run: cargo install trunk --locked
 
       - name: Build | Build
         run: trunk build --release
