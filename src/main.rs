@@ -92,7 +92,14 @@ fn main() -> Result<(), eframe::Error> {
         viewport: egui::ViewportBuilder::default().with_inner_size([320.0, 240.0]),
         ..Default::default()
     };
-    eframe::run_native("Rend", options, Box::new(|_cc| Box::<MyApp>::default()))
+    eframe::run_native("Rend", options, Box::new(|cc| {
+        let style = egui::Style {
+            visuals: egui::Visuals::dark(),
+            ..Style::default()
+        };
+        cc.egui_ctx.set_style(style);
+        Box::<MyApp>::default()))
+    }
 }
 
 #[cfg(target_arch = "wasm32")]
@@ -107,7 +114,14 @@ fn main() {
             .start(
                 "the_canvas_id",
                 web_options,
-                Box::new(|_cc| Box::new(MyApp::new())),
+                Box::new(|cc| {
+                    let style = egui::Style {
+                            visuals: egui::Visuals::dark(),
+                            ..Style::default()
+                    };
+                    cc.egui_ctx.set_style(style);
+                    Box::new(MyApp::new())
+                }),
             )
             .await;
 
