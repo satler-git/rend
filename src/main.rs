@@ -95,7 +95,7 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native("Rend", options, Box::new(|cc| {
             let style = egui::Style {
                 visuals: egui::Visuals::dark(),
-                ..Style::default()
+                ..egui::Style::default()
             };
             cc.egui_ctx.set_style(style);
             Box::<MyApp>::default()
@@ -117,7 +117,7 @@ fn main() {
                 Box::new(|cc| {
                     let style = egui::Style {
                             visuals: egui::Visuals::dark(),
-                            ..Style::default()
+                            ..egui::Style::default()
                     };
                     cc.egui_ctx.set_style(style);
                     Box::new(MyApp::new())
